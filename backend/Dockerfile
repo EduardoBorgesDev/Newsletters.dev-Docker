@@ -1,4 +1,5 @@
 # Use a imagem oficial do Node.js como base
+# Arquivo editado para commit
 FROM node:18-alpine
 
 # Instala o bash e postgresql-client para executar scripts e comandos SQL

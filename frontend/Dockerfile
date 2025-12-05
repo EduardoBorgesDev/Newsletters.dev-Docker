@@ -1,3 +1,4 @@
+# Arquivo editado para commit
 # Estágio 1: Build da aplicação
 FROM node:18-alpine AS builder
 

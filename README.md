@@ -1,3 +1,4 @@
+# Arquivo editado para commit
 # 🚀 Tutorial Auto-Guiado: Deploy de uma To-Do List com Docker e Compose (via Play with Docker)
 
 ## 🎯 Objetivo

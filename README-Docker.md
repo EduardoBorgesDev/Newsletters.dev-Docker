@@ -1,3 +1,4 @@
+# Arquivo editado para commit
 # Docker Setup - To-Do List
 
 Este projeto está configurado para executar completamente com Docker e Docker Compose.

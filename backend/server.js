@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import bd from "./src/models/index.js";
 
+// Arquivo editado para commit
 dotenv.config();
 
 const { Task } = bd;
