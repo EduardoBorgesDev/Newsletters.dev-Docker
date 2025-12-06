@@ -31,3 +31,4 @@ export default (sequelize, DataTypesArg = DataTypes) => {
   });
   return Newsletter;
 };
+//att

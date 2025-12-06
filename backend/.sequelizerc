@@ -6,3 +6,5 @@ module.exports = {
   migrationsPath: path.resolve(__dirname, 'src', 'migrations'),
   seedersPath: path.resolve(__dirname, 'src', 'seeders'),
 };
+
+// att

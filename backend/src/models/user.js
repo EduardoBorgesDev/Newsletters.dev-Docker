@@ -32,3 +32,4 @@ export default (sequelize, DataTypesArg = DataTypes) => {
   });
   return User;
 };
+//att

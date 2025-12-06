@@ -36,3 +36,4 @@ export const config = {
   // Garante execução do middleware em todas as rotas; a lógica interna decide quando redirecionar
   matcher: ['/(.*)']
 }
+//att

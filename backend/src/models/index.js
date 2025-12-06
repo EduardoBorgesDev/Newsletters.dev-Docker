@@ -24,3 +24,4 @@ bd.sequelize = sequelize;
 bd.Sequelize = Sequelize;
 
 export default bd;
+//att
