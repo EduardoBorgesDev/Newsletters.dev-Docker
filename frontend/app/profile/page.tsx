@@ -337,32 +337,7 @@ export default function ProfilePage() {
           Sair da Conta
         </Link>
 
-        {/* Newsletters Section - Ajustei o design dos cartões de newsletters criadas */}
-        <div className="w-full max-w-4xl mx-auto px-4 py-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Minhas Newsletters</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Exemplo de cartão de newsletter - isso deve ser gerado dinamicamente */}
-            <div className="newsletter-card bg-white shadow-lg overflow-hidden transform transition-transform hover:shadow-xl hover:-translate-y-1">
-              <img
-                src="/newsletter-image-placeholder.png"
-                alt="Título da Newsletter"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-800">Título da Newsletter</h3>
-                  <span className="text-gray-600 text-sm md:text-base">01 de jan de 2025</span>
-                </div>
-                <p className="text-gray-700 text-base mb-3">Descrição breve da newsletter para atrair leitores.</p>
-                <div className="flex items-center justify-between">
-                  <button className="mt-0 bg-blue-600 text-white text-base px-5 py-2 hover:bg-blue-700 transition transform hover:shadow-md hover:-translate-y-0.5">Leia mais</button>
-                  <span className="text-black text-sm md:text-base">Categoria</span>
-                </div>
-              </div>
-            </div>
-            {/* Repita o cartão acima para cada newsletter criada pelo usuário */}
-          </div>
-        </div>
+        {/* Newsletters removed from profile as requested */}
       </main>
     </div>
   )
