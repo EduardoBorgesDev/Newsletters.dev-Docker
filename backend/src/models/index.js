@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import Sequelize from 'sequelize';
 import configFile from '../config/config.js';
 
@@ -7,20 +5,20 @@ const env = process.env.NODE_ENV;
 const config = configFile[env];
 const bd = {};
 
-const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-);
+const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-const __dirname = path.resolve();
-for (const file of fs.readdirSync(path.join(__dirname, 'src/models'))) {
-  if (file !== 'index.js' && file.endsWith('.js')) {
-    const model = (await import(`./${file}`)).default(sequelize, Sequelize.DataTypes);
-    bd[model.name] = model;
-  }
+async function loadFactory(modulePath) {
+  const mod = await import(modulePath);
+  return mod.default || mod;
 }
+
+const userFactory = await loadFactory('./user.js');
+const taskFactory = await loadFactory('./task.js');
+const newsletterFactory = await loadFactory('./newsletter.js');
+
+bd.User = userFactory(sequelize, Sequelize.DataTypes);
+bd.Task = taskFactory(sequelize, Sequelize.DataTypes);
+bd.Newsletter = newsletterFactory(sequelize, Sequelize.DataTypes);
 
 bd.sequelize = sequelize;
 bd.Sequelize = Sequelize;

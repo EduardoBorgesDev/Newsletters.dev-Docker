@@ -1,7 +1,16 @@
+# Modificação para novo commit
 # Arquivo editado para commit
-version: '3.8'
+# Compose v2+ ignores 'version'; removing to avoid warning
 
 services:
+  redis-pweb:
+    image: redis:7-alpine
+    container_name: redis-pweb
+    ports:
+      - "6379:6379"
+    networks:
+      - todo-pweb-network
+    restart: unless-stopped
   # Banco de dados PostgreSQL
   db-pweb:
     image: postgres:15-alpine
@@ -9,7 +18,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: todolist
+      POSTGRES_DB: newsletters.dev
     ports:
       - "5434:5432"
     volumes:
@@ -36,12 +45,18 @@ services:
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_NAME: todolist
+      DB_NAME: newsletters.dev
+      REDIS_URL: redis://redis-pweb:6379
+      JWT_SECRET: seu_jwt_secreto
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_KEY: ${SUPABASE_KEY}
     ports:
       - "3000:3000"
     depends_on:
       db-pweb:
         condition: service_healthy
+      redis-pweb:
+        condition: service_started
     networks:
       - todo-pweb-network
     restart: unless-stopped
@@ -53,9 +68,11 @@ services:
       dockerfile: Dockerfile
       args:
         - VITE_API_BASE_URL=http://localhost:3000
+        - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL}
+        - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_KEY}
     container_name: frontend-pweb
     ports:
-      - "80:80"
+      - "80:3000"
     depends_on:
       - backend-pweb
     networks:

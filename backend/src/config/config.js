@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
+  // Modificação para commit
   development: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,

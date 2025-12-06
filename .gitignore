@@ -1,3 +1,8 @@
 tutorial.md
 .playwright-mcp
 .DS_Store
+# Nunca versionar segredos
+.env
+.env.*
+**/.env
+**/.env.*

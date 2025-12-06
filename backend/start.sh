@@ -7,7 +7,7 @@ echo "Aguardando banco de dados ficar pronto..."
 sleep 3
 
 # Conecta ao banco postgres padrão e cria o banco se não existir
-DB_NAME_VALUE=${DB_NAME:-todolist}
+DB_NAME_VALUE=${DB_NAME:-newsletters.dev}
 DB_HOST_VALUE=${DB_HOST:-db}
 DB_PORT_VALUE=${DB_PORT:-5432}
 DB_USER_VALUE=${DB_USER:-postgres}

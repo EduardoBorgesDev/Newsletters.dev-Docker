@@ -1,6 +1,7 @@
 # Use a imagem oficial do Node.js como base
+# Modificação para novo commit
 # Arquivo editado para commit
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Instala o bash e postgresql-client para executar scripts e comandos SQL
 RUN apk add --no-cache bash postgresql-client
@@ -11,14 +12,14 @@ WORKDIR /app
 # Copia os arquivos de dependências
 COPY package*.json ./
 
-# Instala as dependências (incluindo devDependencies para sequelize-cli)
-RUN npm ci
+# Instala as dependências (usa install para sincronizar lock automaticamente)
+RUN npm install --include=dev
 
 # Copia o código fonte da aplicação
 COPY . .
 
 # Torna o script executável
-RUN chmod +x start.sh
+RUN sed -i 's/\r$//' start.sh && chmod +x start.sh
 
 # Expõe a porta que a aplicação usa
 EXPOSE 3000
