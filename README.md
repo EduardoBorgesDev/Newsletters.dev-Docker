@@ -3,4 +3,4 @@
 # docker-compose down; docker-compose pull; docker-compose build --no-cache; docker-compose up -d
 
 # Buildar rapidamente: docker-compose up --build -d
-# LINK YOUTUBE:
+# LINK YOUTUBE: https://www.youtube.com/watch?v=nh_BreGhfeI
